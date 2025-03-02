@@ -3,7 +3,7 @@ import {
   Box, Flex, Text, IconButton, Avatar, Button, VStack, HStack, Drawer, DrawerOverlay, 
   DrawerContent, DrawerBody, useDisclosure 
 } from "@chakra-ui/react";
-import { motion, AnimatePresence } from "framer-motion";
+import {  AnimatePresence } from "framer-motion";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { useData } from "./utils/contextFile";

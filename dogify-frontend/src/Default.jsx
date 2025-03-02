@@ -3,6 +3,8 @@ import { Box, Button, Flex, FormControl, FormLabel, Heading, Input } from "@chak
 // import { useState } from "react";
 // import axios from "axios";
 import { BACKEND_URL } from "../src/utils/constant";
+import Tabs from "./tab";
+import Upload from "./Upload";
 // import { useParams } from "react-router-dom";
 
 
@@ -44,7 +46,10 @@ export default function Default() {
             </FormControl>
             </Box>}
         </Flex> */}
-        <Heading as="h3" mb={8}>Hello</Heading>
+        <Upload/>
+
+        <Heading as="h3" mb={8}>Our Products</Heading>
+        <Tabs/>
     </Flex>
   )
 }

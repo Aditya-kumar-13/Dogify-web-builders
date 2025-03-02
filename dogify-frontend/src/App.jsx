@@ -24,6 +24,7 @@ function App() {
   const [ isLoading, setIsLoading ] = useState(true);
   // const [ addRoom, setAddRoom ] = useState(0);
   const [ hasForgotten, setHasForgotten] = useState(false);
+  const [premium,setPremium] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -41,7 +42,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        <Route path="login" element={isLoggedIn ? <Navigate to={"/dashboard/"+`${isLoggedIn}`} replace /> : <Login/>}>
+        <Route path="login" element={isLoggedIn ? <Navigate to={"/dashboard/"+`${isLoggedIn}/premium`} replace /> : <Login/>}>
         </Route>
         <Route path="dashboard/:id" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" replace/>}>
           <Route path="" element={isLoggedIn ? <Default/>: <Navigate to="/login" replace/>}></Route>
@@ -64,7 +65,7 @@ function App() {
   }
 
   return (
-    <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn, hasForgotten, setHasForgotten}}>
+    <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn, hasForgotten, setHasForgotten,premium, setPremium }}>
      <ChakraProvider>
       <RouterProvider router={router} />
      </ChakraProvider>

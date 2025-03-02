@@ -10,7 +10,7 @@ const Tabs = () => {
         flexDirection="row"
         minW="100%"
         gap={6}
-        bg="#F5F5F5">
+        bg="">
             <Card>
                 <CardBody textAlign="center">
                     <Image
@@ -22,7 +22,7 @@ const Tabs = () => {
                 </CardBody>
             </Card>
             <Card>
-                <CardBody>
+                <CardBody textAlign="center">
                     <Image
                     src="/src/assets/medicine2.png"
                     boxSize="10rem"
@@ -32,7 +32,7 @@ const Tabs = () => {
                 </CardBody>
             </Card>
                 <Card>
-                <CardBody>
+                <CardBody textAlign="center">
                     <Image
                     src="/src/assets/medicine3.png"
                     boxSize="10rem"
@@ -42,7 +42,7 @@ const Tabs = () => {
                 </CardBody>
                 </Card>
                 <Card>
-                <CardBody>
+                <CardBody textAlign="center">
                     <Image
                     src="/src/assets/medicine4.png"
                     boxSize="10rem"
@@ -52,7 +52,7 @@ const Tabs = () => {
                 </CardBody>
                 </Card>
                 <Card>
-                <CardBody>
+                <CardBody textAlign="center">
                     <Image
                     src="/src/assets/medicine5.png"
                     boxSize="10rem"
@@ -62,7 +62,7 @@ const Tabs = () => {
                 </CardBody>
                 </Card>
                 <Card>
-                <CardBody>
+                <CardBody textAlign="center">
                     <Image
                     src="/src/assets/medicine6.png"
                     boxSize="10rem"

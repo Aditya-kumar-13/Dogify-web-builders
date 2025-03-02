@@ -1,14 +1,14 @@
-import react from "react";
-import { useState } from "react";
+
 import axios from "axios";
 import {  useNavigate } from "react-router-dom";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Box, Flex, Card, CardBody, Heading, Text ,Button,useToast,List,ListIcon,ListItem} from "@chakra-ui/react";
 import { BACKEND_URL } from "./utils/constant";
 import Tabs from "./tab";
+import { useData } from "./utils/contextFile";
 const Premium = () => {
-    const [premium,setPremium] = useState(false);
     const navigate = useNavigate();
+    const {premium, setPremium, isLoggedIn} = useData();
     const toast = useToast();
     let user = "aditya-k";
     const handlePremium =async (premium) =>{
@@ -23,7 +23,7 @@ const Premium = () => {
                 position: "top-right",
               });
               setTimeout(()=>{
-                navigate("/dashboard");
+                navigate("/dashboard/"+`${isLoggedIn}`);
               },3000)
         }catch(err){
             console.log(err);
@@ -47,9 +47,6 @@ const Premium = () => {
           <CardBody align="center">
             <Heading size="lg" color="orange" m="1rem 0 1rem 0">Premium Pass</Heading>
             <Flex align="start" flexDirection="column" ml="1rem">
-            {/* <Text fontWeight="bold">Personalized Consultation</Text>
-            <Text fontWeight="bold">Diet plan based on Dog breed</Text>
-            <Text fontWeight="bold">Detailed Analysis of Dog disease</Text> */}
             <List spacing={4} textAlign="left">
                 <ListItem>
                     <ListIcon as={CheckCircleIcon} color="green.500" />
@@ -79,9 +76,6 @@ const Premium = () => {
           <CardBody align="center">
             <Heading size="lg" color="orange" m="1rem 0 1rem 0">Free Pass</Heading>
             <Flex align="start" flexDirection="column" ml="1rem">
-            {/* <Text fontWeight="bold">Identification of Dog breed</Text>
-            <Text fontWeight="bold">General diet for Dogs</Text>
-            <Text fontWeight="bold">General Information of Dogs</Text> */}
             <List spacing={4} textAlign="left">
                 <ListItem>
                     <ListIcon as={CheckCircleIcon} color="green.500" />

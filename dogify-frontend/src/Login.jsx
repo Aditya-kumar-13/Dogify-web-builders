@@ -12,7 +12,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState('');
-  const {setIsLoggedIn, setHasForgotten, isLoggedIn} = useData();
+  const {setIsLoggedIn, setHasForgotten} = useData();
   const navigate = useNavigate();
 
 
@@ -36,7 +36,7 @@ export default function Login() {
       const loggedIn = await authUser();
       console.log("loggedIN: ", loggedIn);
       setIsLoggedIn(loggedIn);
-      navigate("/dashboard/"+`${isLoggedIn}`);
+      navigate(`/dashboard/${loggedIn}/premium`);
     }
     }catch(err){
       
