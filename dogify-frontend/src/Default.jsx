@@ -33,7 +33,7 @@ export default function Default() {
 //   }
   
   return (
-    <Flex w={"100%"} h={"100%"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"} p={4}>
+    <Flex w={"100%"} h={"200%"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"} p={4}>
         {/* <Heading as="h3" mb={8}>What you want to do today?</Heading>
         <Flex>
             {!input && <Button onClick={() => setInput(prev => !prev)} mr={8}>Create Room</Button>}
@@ -46,10 +46,9 @@ export default function Default() {
             </FormControl>
             </Box>}
         </Flex> */}
+            <Heading as="h3" mb={8}>Our Products</Heading>
+            <Tabs/>
         <Upload/>
-
-        <Heading as="h3" mb={8}>Our Products</Heading>
-        <Tabs/>
     </Flex>
   )
 }
