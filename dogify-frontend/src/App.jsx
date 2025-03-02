@@ -1,4 +1,5 @@
 import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider} from "react-router-dom"
+import Premium from './premium'
 import './App.css'
 import Login from './Login';
 import Dashboard from './layout/Dashboard';
@@ -42,8 +43,9 @@ function App() {
       <Route path="/">
         <Route path="login" element={isLoggedIn ? <Navigate to={"/dashboard/"+`${isLoggedIn}`} replace /> : <Login/>}>
         </Route>
-        <Route path="dashboard/:id" element={isLoggedIn !== null ? <Dashboard /> : <Navigate to="/login" replace/>}>
-          <Route path="" element={isLoggedIn !== null ? <Default/>: <Navigate to="/login" replace/>}></Route>
+        <Route path="dashboard/:id" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" replace/>}>
+          <Route path="" element={isLoggedIn ? <Default/>: <Navigate to="/login" replace/>}></Route>
+          <Route path="premium" element={isLoggedIn?<Premium />:<Navigate to="" replace/>} />
           {/* <Route path=":room/chat" element={isLoggedIn ? <Chat/> : <Navigate to="/login" replace/>}></Route>
           <Route path=":room/document" element={isLoggedIn ? <Docs/> : <Navigate to="/login" replace/>}></Route>
           <Route path=":room/task_manager" element={isLoggedIn ? <TaskManager/> : <Navigate to="/login" replace/>}></Route> */}
@@ -68,6 +70,7 @@ function App() {
      </ChakraProvider>
     </UserContext.Provider>
   )
+  
 }
 
 export default App

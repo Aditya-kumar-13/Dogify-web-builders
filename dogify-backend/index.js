@@ -12,6 +12,7 @@ import { userData } from './Controllers/userData.js';
 import http from 'http';
 import { sendOtp } from './Controllers/sendOtp.js';
 import { updatePassword } from './Controllers/updatePassword.js';
+import { savePremium } from './controllers/premium.js';
 
 dotenv.config();
 
@@ -107,6 +108,8 @@ app.post("/userdata", userData);
 app.post("/sendOTP", sendOtp);
 
 app.post("/updatePassword", updatePassword);
+
+app.put("/premium",savePremium);
 
 
 

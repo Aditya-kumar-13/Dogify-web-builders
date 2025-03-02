@@ -11,9 +11,8 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
-    rooms:{
-        type:[String],
-        default:[]
+    ispremium:{
+        type:Boolean
     }
 })
 
