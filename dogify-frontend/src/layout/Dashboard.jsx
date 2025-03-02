@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import axios from 'axios';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { BACKEND_URL } from '../utils/constant';
 import { useData } from '../utils/contextFile';
 import { authUser } from '../utils/authUser';
@@ -8,10 +8,10 @@ import { useParams} from "react-router-dom";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
 
-
 export default function Dashboard() {
   const {setIsLoggedIn} = useData();
   const {id, room} = useParams();
+  const navigate = useNavigate();
 //   const location = useLocation();
 //   const [socket, setSocket] = useState(null)
 //   const [ currentTab, setCurrentTab ] = useState("");
@@ -72,12 +72,16 @@ export default function Dashboard() {
 //     Userdata(id);
 //   },[id,addRoom,socket])
 
+//  useEffect(() => {
+
+//  },[])
   const logoutFunction = async() => {
     try{
       const response = await axios.get(BACKEND_URL+'/logout',{withCredentials:true} );
       if(response.status === 200){
         const loggedIn = await authUser();
         setIsLoggedIn(loggedIn);
+        navigate('/login');
       }
     }catch(err){
       if(err.response){

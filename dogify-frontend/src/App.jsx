@@ -31,21 +31,25 @@ function App() {
       setIsLoading(false)
     };
     checkAuth();
-  },[])
+  },[isLoggedIn])
+
+  useEffect(() => {
+    console.log("isLoggedIn: ", isLoggedIn);
+  },[isLoggedIn])
   
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
         <Route path="login" element={isLoggedIn ? <Navigate to={"/dashboard/"+`${isLoggedIn}`} replace /> : <Login/>}>
         </Route>
-        <Route path="dashboard/:id" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" replace/>}>
-          <Route path="" element={isLoggedIn ? <Default/>: <Navigate to="/login" replace/>}></Route>
+        <Route path="dashboard/:id" element={isLoggedIn !== null ? <Dashboard /> : <Navigate to="/login" replace/>}>
+          <Route path="" element={isLoggedIn !== null ? <Default/>: <Navigate to="/login" replace/>}></Route>
           {/* <Route path=":room/chat" element={isLoggedIn ? <Chat/> : <Navigate to="/login" replace/>}></Route>
           <Route path=":room/document" element={isLoggedIn ? <Docs/> : <Navigate to="/login" replace/>}></Route>
           <Route path=":room/task_manager" element={isLoggedIn ? <TaskManager/> : <Navigate to="/login" replace/>}></Route> */}
         </Route>
-        <Route path="signup" element={isLoggedIn ? <Navigate to={"/dashboard/"+`${isLoggedIn}`} replace/> : <Signup />}></Route>
-        <Route path="" element={isLoggedIn ? <Navigate to={"/dashboard/"+`${isLoggedIn}`} replace/> : <Navigate to="/login"/>}></Route>
+        <Route path="signup" element={isLoggedIn !== null ? <Navigate to={"/dashboard/"+`${isLoggedIn}`} replace/> : <Signup />}></Route>
+        <Route path="" element={isLoggedIn !== null ? <Navigate to={"/dashboard/"+`${isLoggedIn}`} replace/> : <Navigate to="/login"/>}></Route>
         <Route path="login/forgot" element={hasForgotten ? <Forgot/> : <Navigate to="/login" replace/>}></Route>
         <Route path="login/forgot/:id/:otp" element={hasForgotten ? <ResetPassord/> : <Navigate to="/login" replace/>}></Route>
         <Route path="*" element={<ErrorPage/>}></Route>

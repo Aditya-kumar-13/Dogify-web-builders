@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { BACKEND_URL } from '../src/utils/constant';
 import axios from 'axios';
 import { Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useData } from '../src/utils/contextFile';
 import { authUser } from '../src/utils/authUser';
 
@@ -11,7 +12,8 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState('');
-  const {setIsLoggedIn, setHasForgotten} = useData();
+  const {setIsLoggedIn, setHasForgotten, isLoggedIn} = useData();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export default function Login() {
       const loggedIn = await authUser();
       console.log("loggedIN: ", loggedIn);
       setIsLoggedIn(loggedIn);
-
+      navigate("/dashboard/"+`${isLoggedIn}`);
     }
     }catch(err){
       
