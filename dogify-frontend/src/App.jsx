@@ -41,6 +41,7 @@ function App() {
         </Route>
         <Route path="dashboard/:id" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" replace/>}>
           <Route path="" element={isLoggedIn ? <Default/>: <Navigate to="/login" replace/>}></Route>
+          <Route path="premium" element={isLoggedIn?<Premium />:<Navigate to="" replace/>} />
           {/* <Route path=":room/chat" element={isLoggedIn ? <Chat/> : <Navigate to="/login" replace/>}></Route>
           <Route path=":room/document" element={isLoggedIn ? <Docs/> : <Navigate to="/login" replace/>}></Route>
           <Route path=":room/task_manager" element={isLoggedIn ? <TaskManager/> : <Navigate to="/login" replace/>}></Route> */}
@@ -64,17 +65,8 @@ function App() {
       <RouterProvider router={router} />
      </ChakraProvider>
     </UserContext.Provider>
-    <>
-      <ChakraProvider>
-      <Router> 
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/premium" element={<Premium />} />
-      </Routes>
-    </Router>
-    </ChakraProvider>
-    </>
   )
+  
 }
 
 export default App

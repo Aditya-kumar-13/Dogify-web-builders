@@ -4,14 +4,16 @@ import axios from "axios";
 import {  useNavigate } from "react-router-dom";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Box, Flex, Card, CardBody, Heading, Text ,Button,useToast,List,ListIcon,ListItem} from "@chakra-ui/react";
+import { BACKEND_URL } from "./utils/constant";
+import Tabs from "./tab";
 const Premium = () => {
     const [premium,setPremium] = useState(false);
     const navigate = useNavigate();
     const toast = useToast();
-    let user = "Mark";
+    let user = "aditya-k";
     const handlePremium =async (premium) =>{
         try{
-            const res = await axios.put("/premium",{premium,user});
+            const res = await axios.put(BACKEND_URL+"/premium",{premium,user});
             toast({
                 title: "Successfully done!",
                 description: res.data,
@@ -19,7 +21,6 @@ const Premium = () => {
                 duration: 3000,
                 isClosable: true,
                 position: "top-right",
-                wind
               });
               setTimeout(()=>{
                 navigate("/dashboard");
@@ -31,9 +32,11 @@ const Premium = () => {
 
     }
     return(
+        <>
         <Flex 
-        minW="100vw"
-        minH="100vh"
+        overflowX="hidden"
+        w="100%"
+        minH="100%"
         wrap="wrap" 
         justify="center" 
         align="center"
@@ -102,7 +105,13 @@ const Premium = () => {
                 </Button>
           </CardBody>
         </Card>
+        
       </Flex>
+      <Flex
+      minW="100vw"><Tabs/></Flex>
+        
+   
+      </>
     )
 }
 
