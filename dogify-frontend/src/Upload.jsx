@@ -115,8 +115,8 @@ export default function Upload() {
   };
 
   // Function to fetch Wikipedia page summary
-  const fetchWikipediaPageSummary = async (pageTitle) => {
-    return await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${pageTitle}`)
+  const fetchWikipediaPageSummary = (pageTitle) => {
+    return axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${pageTitle}`)
       .then((response) => response.data)
       .catch((err) => {
         throw new Error(`Failed to fetch Wikipedia summary for "${pageTitle}".`);
@@ -125,9 +125,8 @@ export default function Upload() {
 
   return (
     <Box
-      h="95vh"
+      minH="100vh"
       w="full"
-      marginTop="25rem"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -135,7 +134,7 @@ export default function Upload() {
       pt="80px"
       px={4}
     >
-      <Heading size={"xl"} mb={{ base: 16, sm: 5 }} textAlign="center">
+      <Heading size={"2xl"} mb={{ base: 16, sm: 24 }} textAlign="center">
         Upload Your Dog Image
       </Heading>
 
