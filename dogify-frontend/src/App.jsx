@@ -1,14 +1,17 @@
 
 import './App.css'
-// 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react'
+import Dashboard from './Dashboard'
+import Navbar from './Navbar'
 
 function App() {
 
 
   return (
     <ChakraProvider>
-    <div>Hello</div>
+    <Navbar/>
+
+    <Dashboard/>
     </ChakraProvider>
   )
 }
