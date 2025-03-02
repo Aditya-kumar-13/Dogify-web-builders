@@ -1,4 +1,4 @@
-
+import Premium from './premium'
 import './App.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div>Hello</div>
+      <Premium />
     </>
   )
 }
