@@ -6,6 +6,7 @@ import { useData } from '../utils/contextFile';
 import { authUser } from '../utils/authUser';
 import { useParams} from "react-router-dom";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import Navbar from '../Navbar';
 
 
 export default function Dashboard() {
@@ -122,12 +123,8 @@ export default function Dashboard() {
            </Flex>
         </Flex>
         <Flex direction={'column'} w={"100%"} h={'100%'}>
-          <Flex as="nav" w={"100%"} h={'60px'} padding={'4'} flexFlow={0} bgColor={'gray.500'} justifyContent={"center"} alignItems={"center"}>
-            {/* <Flex>
-              {room && <Link to={`/dashboard/${id}/${room}/chat`}><Button mr={4} fontSize={{base:'xs', md:'lg'}} bgColor={ currentTab==="chat" ? 'black' : 'white'} _hover={currentTab==="chat" ? { bg: "black", boxShadow: "xl"} : { bg: "white", boxShadow: "xl"}} color={currentTab==="chat" ? 'white' : 'black'}>Chat</Button></Link>}
-              {room && <Link to={`/dashboard/${id}/${room}/document`}><Button mr={4} fontSize={{base:'xs', md:'lg'}} bgColor={ currentTab==="document" ? 'black' : 'white'} _hover={currentTab==="document" ? { bg: "black", boxShadow: "xl"} : { bg: "white", boxShadow: "xl"}} color={currentTab==="document" ? 'white' : 'black'}>Document</Button></Link>}
-              {room && <Link to={`/dashboard/${id}/${room}/task_manager`}><Button mr={4} fontSize={{base:'xs', md:'lg'}} bgColor={ currentTab==="task_manager" ? 'black' : 'white'} _hover={currentTab==="task_manager" ? { bg: "black", boxShadow: "xl"} : { bg: "white", boxShadow: "xl"}} color={currentTab==="task_manager" ? 'white' : 'black'}>Task Manager</Button></Link>}
-            </Flex>   */}
+          <Flex as="nav" w={"100%"} h={'60px'} flexFlow={0} bgColor={'gray.500'} justifyContent={"center"} alignItems={"center"}>
+            <Navbar/>
           </Flex>
           <Box as="main" w={"100%"} h={"100%"} bgColor={'gray.400'}>
             <Outlet/>

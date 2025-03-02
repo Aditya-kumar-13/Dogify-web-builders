@@ -32,7 +32,7 @@ export default function Login() {
 
     if(response.status === 200){
       console.log("Login successful.");
-      alert("Welcome email sent successfully.");
+    //   alert("Welcome email sent successfully.");
       const loggedIn = await authUser();
       console.log("loggedIN: ", loggedIn);
       setIsLoggedIn(loggedIn);
