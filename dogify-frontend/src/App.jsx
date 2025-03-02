@@ -1,6 +1,8 @@
 import { Route, createBrowserRouter, createRoutesFromElements, Navigate, RouterProvider} from "react-router-dom"
 import './App.css'
+import Upload from "./Upload";
 import Login from './Login';
+import Navbar from "./Navbar";
 import Dashboard from './layout/Dashboard';
 import { UserContext } from "./utils/contextFile"
 import { useEffect, useState } from "react";
@@ -61,13 +63,14 @@ function App() {
     <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn, hasForgotten, setHasForgotten}}>
      <ChakraProvider>
       <RouterProvider router={router} />
+      <Navbar/>
+      <Upload/>
+
+      
      </ChakraProvider>
     </UserContext.Provider>
-    <ChakraProvider>
-    <Navbar/>
 
-    <Dashboard/>
-    </ChakraProvider>
+    
   )
 }
 

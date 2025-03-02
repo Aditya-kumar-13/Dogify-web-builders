@@ -6,7 +6,7 @@ import { useDropzone } from "react-dropzone";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
-export default function ImageUploader() {
+export default function Upload() {
   const [image, setImage] = useState(null);
   const [diseaseInfo, setDiseaseInfo] = useState(null);
   const [loading, setLoading] = useState(false);
